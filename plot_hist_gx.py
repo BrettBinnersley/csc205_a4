@@ -15,19 +15,12 @@ import itertools
 import numpy
 
 # Provided code below
-def histograms(image_intensities):
+def GetHistogram(image_intensities):
 	all_intensities = image_intensities.flatten() #Convert the 2d array into a single long array of pixel values
 	hist = numpy.zeros(256)
 	for i in all_intensities:
 		hist[i] += 1
-	cumulative_hist = numpy.zeros(256)
-	cumulative_hist[0] = hist[0]
-	for i in xrange(1,256):
-		cumulative_hist[i] = cumulative_hist[i-1] + hist[i]
-	#Normalize the histograms to 0-1
-	# hist /= hist.max()
-	# cumulative_hist /= cumulative_hist.max()
-	return hist,cumulative_hist
+	return hist
 
 def plot_histogram_array(output_filename, hist):
 	hist_field = numpy.ndarray((256,100))
@@ -72,6 +65,10 @@ def gen_fx_cumulative_histogram(om, u):
         st = math.exp(-((x-u) * (x-u))/(2.0*om*om))
         val = ft * st
         arr[x] = val
+    arr /= arr.max()
+    for x in range(256):
+        arr[x] = 1 - arr[x]
+
 	cumulative_hist = numpy.zeros(256)
 	cumulative_hist[0] = arr[0]
 	for i in xrange(1,256):
@@ -111,7 +108,7 @@ if __name__ == '__main__':
     # Filenames
     input_filename = sys.argv[1]
     oname = input_filename.rsplit('.',1)[0]
-    output_filename = oname + '_fx_matched.png'
+    output_filename = oname + '_gx_matched.png'
 
     # Read input and generate histograms
     image_intensities = read_image_greyscale(input_filename)
