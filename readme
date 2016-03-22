@@ -1,0 +1,7 @@
+Part1:
+plot_hist_fx.py - generate histogram using F(x)
+plot_hist_gx.py - generate histogram using G(x)
+
+Part2:
+gaussian_blur.py - blurs the input image with a gaussian blur (5x5 matrix)
+edge_sharpen.py - Sharpens the edges of the input image

@@ -1,4 +1,4 @@
-# plot_histograms.py
+# plot_hist_gx.py
 # CSC 205 - Spring 2016
 #
 # B. Bird - 03/10/2016
