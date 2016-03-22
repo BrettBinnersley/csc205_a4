@@ -4,4 +4,10 @@ plot_hist_gx.py - generate histogram using G(x)
 
 Part2:
 gaussian_blur.py - blurs the input image with a gaussian blur (5x5 matrix)
+
+Part 3:
 edge_sharpen.py - Sharpens the edges of the input image
+
+Bonus (sorta):
+Combined part 2 & 3 to have a sharpend and blurred image
+edge_sharpen_with_blur.py
